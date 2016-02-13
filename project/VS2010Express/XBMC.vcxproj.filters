@@ -367,6 +367,9 @@
     <Filter Include="interfaces\builtins">
       <UniqueIdentifier>{248ffbc4-43f5-4aaf-b259-2dd4f840fcef}</UniqueIdentifier>
     </Filter>
+    <Filter Include="cores\btplayer">
+      <UniqueIdentifier>{bdf3a8ab-291b-454c-a9be-65163124ec22}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\xbmc\win32\pch.cpp">
@@ -3227,6 +3230,9 @@
     </ClCompile>
     <ClCompile Include="..\..\xbmc\pvr\PVRSettings.cpp">
       <Filter>pvr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\xbmc\cores\btplayer\BTPlayer.cpp">
+      <Filter>cores\btplayer</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -6261,6 +6267,9 @@
     </ClInclude>
     <ClInclude Include="..\..\xbmc\pvr\PVRSettings.h">
       <Filter>pvr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\xbmc\cores\btplayer\BTPlayer.h">
+      <Filter>cores\btplayer</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

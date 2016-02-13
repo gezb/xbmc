@@ -332,6 +332,11 @@ bool CPlayerCoreFactory::LoadConfiguration(const std::string &file, bool clear)
     paplayer->m_bPlaysAudio = true;
     m_vecCoreConfigs.push_back(paplayer);
 
+    CPlayerCoreConfig* btplayer = new CPlayerCoreConfig("BTPLayer", EPC_BTPLAYER, NULL);
+    btplayer->m_bPlaysAudio = true;
+    btplayer->m_bPlaysVideo = false;
+    m_vecCoreConfigs.push_back(btplayer);
+
     for(std::vector<CPlayerSelectionRule *>::iterator it = m_vecCoreSelectionRules.begin(); it != m_vecCoreSelectionRules.end(); ++it)
       delete *it;
     m_vecCoreSelectionRules.clear();
@@ -358,6 +363,7 @@ bool CPlayerCoreFactory::LoadConfiguration(const std::string &file, bool clear)
       if (type == "dvdplayer" || type == "mplayer") eCore = EPC_DVDPLAYER;
       if (type == "paplayer" ) eCore = EPC_PAPLAYER;
       if (type == "externalplayer" ) eCore = EPC_EXTPLAYER;
+      if (type == "btplayer" ) eCore = EPC_BTPLAYER;
 
       if (eCore != EPC_NONE)
       {

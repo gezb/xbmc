@@ -251,6 +251,7 @@
     <ClCompile Include="..\..\xbmc\cores\AudioEngine\Utils\AEPackIEC61937.cpp" />
     <ClCompile Include="..\..\xbmc\cores\AudioEngine\Utils\AEStreamInfo.cpp" />
     <ClCompile Include="..\..\xbmc\cores\AudioEngine\Utils\AEUtil.cpp" />
+    <ClCompile Include="..\..\xbmc\cores\btplayer\BTPlayer.cpp" />
     <ClCompile Include="..\..\xbmc\cores\DataCacheCore.cpp" />
     <ClCompile Include="..\..\xbmc\cores\dvdplayer\DVDCodecs\Audio\DVDAudioCodecPassthrough.cpp" />
     <ClCompile Include="..\..\xbmc\cores\dvdplayer\DVDCodecs\Overlay\contrib\cc_decoder.c">
@@ -902,6 +903,7 @@
     <ClInclude Include="..\..\xbmc\cores\AudioEngine\DSPAddons\ActiveAEDSPMode.h" />
     <ClInclude Include="..\..\xbmc\cores\AudioEngine\DSPAddons\ActiveAEDSPProcess.h" />
     <ClInclude Include="..\..\xbmc\cores\AudioEngine\Utils\AEStreamData.h" />
+    <ClInclude Include="..\..\xbmc\cores\btplayer\BTPlayer.h" />
     <ClInclude Include="..\..\xbmc\cores\DataCacheCore.h" />
     <ClInclude Include="..\..\xbmc\cores\AudioEngine\AEFactory.h" />
     <ClInclude Include="..\..\xbmc\cores\AudioEngine\AEResampleFactory.h" />

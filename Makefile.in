@@ -39,6 +39,7 @@ DIRECTORY_ARCHIVES=$(DVDPLAYER_ARCHIVES) \
                    xbmc/cores/VideoRenderers/VideoShaders/VideoShaders.a \
                    xbmc/cores/cores.a \
                    xbmc/cores/paplayer/paplayer.a \
+                   xbmc/cores/btplayer/btplayer.a \
                    xbmc/cores/playercorefactory/playercorefactory.a \
                    xbmc/dbwrappers/dbwrappers.a \
                    xbmc/dialogs/dialogs.a \

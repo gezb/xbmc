@@ -29,6 +29,7 @@
 #include "network/upnp/UPnPPlayer.h"
 #endif
 #include "utils/log.h"
+#include "cores/btplayer/BTPlayer.h"
 
 class CPlayerCoreConfig
 {
@@ -100,6 +101,7 @@ public:
 #if defined(HAS_UPNP)
       case EPC_UPNPPLAYER: pPlayer = new UPNP::CUPnPPlayer(callback, m_id.c_str()); break;
 #endif
+      case EPC_BTPLAYER: pPlayer  =  new BTPlayer(callback); break;
       default: return NULL;
     }
 
