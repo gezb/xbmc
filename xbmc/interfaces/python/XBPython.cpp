@@ -229,6 +229,30 @@ void XBPython::OnQueueNextItem()
   }
 }
 
+// message all registered callbacks that next item has been selected
+void XBPython::OnNextItem()
+{
+	XBMC_TRACE;
+	LOCK_AND_COPY(std::vector<PVOID>, tmp, m_vecPlayerCallbackList);
+	for (PlayerCallbackList::iterator it = tmp.begin(); (it != tmp.end()); ++it)
+	{
+		if (CHECK_FOR_ENTRY(m_vecPlayerCallbackList, (*it)))
+			((IPlayerCallback*)(*it))->OnNextItem();
+	}
+}
+
+// message all registered callbacks that prev item has been selected
+void XBPython::OnPrevItem()
+{
+	XBMC_TRACE;
+	LOCK_AND_COPY(std::vector<PVOID>, tmp, m_vecPlayerCallbackList);
+	for (PlayerCallbackList::iterator it = tmp.begin(); (it != tmp.end()); ++it)
+	{
+		if (CHECK_FOR_ENTRY(m_vecPlayerCallbackList, (*it)))
+			((IPlayerCallback*)(*it))->OnPrevItem();
+	}
+}
+
 void XBPython::RegisterPythonPlayerCallBack(IPlayerCallback* pCallback)
 {
   XBMC_TRACE;

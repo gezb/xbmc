@@ -65,7 +65,7 @@ namespace XBMCAddon
 
     public:
 #ifndef SWIG
-	  static PlayParameter defaultPlayParameter;
+         static PlayParameter defaultPlayParameter;
 #endif
 
       // Construct a Player proxying the given generated binding. The 
@@ -169,6 +169,22 @@ namespace XBMCAddon
        * Will be called when user queues the next item
        */
       virtual void onQueueNextItem();
+
+      /**
+      * onNextItem() -- onNextItem method.
+      *
+      * Will be called when a user selects Next track
+      */
+      // Player_OnNextItem
+      virtual void onNextItem();
+
+      /**
+      * onPrevItem() -- onPrevItem method.
+      *
+      * Will be called when a user selects Previous track
+      */
+      // Player_OnPrevItem
+      virtual void onPrevItem();
 
       /**
        * onPlayBackSpeedChanged(speed) -- onPlayBackSpeedChanged method.
@@ -355,6 +371,8 @@ namespace XBMCAddon
       SWIGHIDDENVIRTUAL void    OnPlayBackSpeedChanged(int iSpeed);
       SWIGHIDDENVIRTUAL void    OnPlayBackSeek(int iTime, int seekOffset);
       SWIGHIDDENVIRTUAL void    OnPlayBackSeekChapter(int iChapter);
+      SWIGHIDDENVIRTUAL void    OnNextItem();
+      SWIGHIDDENVIRTUAL void    OnPrevItem();
 #endif
 
     protected:

@@ -2255,6 +2255,19 @@ bool CApplication::OnAction(const CAction &action)
     return true;
   }
 
+  // fire python events if needed
+  if (m_pPlayer->IsPlaying())
+  {
+      if (action.GetID() == ACTION_NEXT_ITEM)
+      {
+          OnNextItem();
+      }
+      if (action.GetID() == ACTION_PREV_ITEM)
+      {
+          OnPrevItem();
+      }
+  }
+
   // Now check with the playlist player if action can be handled.
   // In case of the action PREV_ITEM, we only allow the playlist player to take it if we're less than 3 seconds into playback.
   if (!(action.GetID() == ACTION_PREV_ITEM && m_pPlayer->CanSeek() && GetTime() > 3) )
@@ -3774,6 +3787,20 @@ void CApplication::OnPlayBackSeekChapter(int iChapter)
 {
 #ifdef HAS_PYTHON
   g_pythonParser.OnPlayBackSeekChapter(iChapter);
+#endif
+}
+
+void CApplication::OnNextItem()
+{
+#ifdef HAS_PYTHON
+	g_pythonParser.OnNextItem();
+#endif
+}
+
+void CApplication::OnPrevItem()
+{
+#ifdef HAS_PYTHON
+	g_pythonParser.OnPrevItem();
 #endif
 }
 

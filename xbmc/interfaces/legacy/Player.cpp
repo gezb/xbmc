@@ -233,9 +233,21 @@ namespace XBMCAddon
     }
 
     void Player::OnQueueNextItem()
-    { 
+    {
+        XBMC_TRACE;
+        invokeCallback(new CallbackFunction<Player>(this,&Player::onQueueNextItem));
+    }
+
+    void Player::OnNextItem()
+    {
       XBMC_TRACE;
-      invokeCallback(new CallbackFunction<Player>(this,&Player::onQueueNextItem));
+      invokeCallback(new CallbackFunction<Player>(this,&Player::onNextItem));
+    }
+
+    void Player::OnPrevItem()
+    {
+        XBMC_TRACE;
+        invokeCallback(new CallbackFunction<Player>(this,&Player::onPrevItem));
     }
 
     void Player::OnPlayBackSpeedChanged(int speed)
@@ -282,6 +294,16 @@ namespace XBMCAddon
     }
 
     void Player::onQueueNextItem()
+    {
+      XBMC_TRACE;
+    }
+
+    void Player::onNextItem()
+    {
+      XBMC_TRACE;
+    }
+
+    void Player::onPrevItem()
     {
       XBMC_TRACE;
     }
