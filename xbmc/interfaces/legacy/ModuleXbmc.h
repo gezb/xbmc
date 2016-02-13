@@ -418,7 +418,28 @@ namespace XBMCAddon
     */
     String convertLanguage(const char* language, int format); 
 
-    SWIG_CONSTANT_FROM_GETTER(int,SERVER_WEBSERVER);
+    /**
+     * startBTPlayer()
+     *
+     * dbus_path the DBUS path to the Player object to mintor for A2DP track information
+     *
+     * example:
+     *  - xbmc.startBTPlayer("/org/bluez/hci0/dev_FXX_XX_XX_XX_XX_XX_XX/player0")
+     */
+	 void startBTPlayer(const char* dbus_path);
+
+    /**
+    * stopBTPlayer() -- Stops BTPlayer
+    */
+    void stopBTPlayer();
+
+    /**
+    * isBTPlayerActive() -- returns true if BTPlayer is active
+    */
+    bool isBTPlayerActive();
+
+    SWIG_CONSTANT_FROM_GETTER(int, SERVER_WEBSERVER);
+
     SWIG_CONSTANT_FROM_GETTER(int,SERVER_AIRPLAYSERVER);
     SWIG_CONSTANT_FROM_GETTER(int,SERVER_UPNPSERVER);
     SWIG_CONSTANT_FROM_GETTER(int,SERVER_UPNPRENDERER);

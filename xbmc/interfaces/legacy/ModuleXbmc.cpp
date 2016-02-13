@@ -56,6 +56,9 @@
 #include "LanguageHook.h"
 
 #include "cores/VideoRenderers/RenderCapture.h"
+#include "FileItem.h"
+#include "cores/playercorefactory/PlayerCoreConfig.h"
+#include "cores/playercorefactory/PlayerCoreFactory.h"
 
 #include "threads/SystemClock.h"
 #include <vector>
@@ -563,5 +566,67 @@ namespace XBMCAddon
     int getENGLISH_NAME() { return CLangCodeExpander::ENGLISH_NAME; }
 
     const int lLOGNOTICE = LOGNOTICE;
+
+          PLAYERCOREID findBTPlayer()
+        {
+            PLAYERCOREID btPlayerId = 0;
+            VECPLAYERCORES players;
+            CPlayerCoreFactory::GetInstance().GetPlayers(players, true, false);
+            for (VECPLAYERCORES::const_iterator itPlayer = players.begin(); itPlayer != players.end(); ++itPlayer)
+            {
+                PLAYERCOREID playerId = *itPlayer;
+                const CPlayerCoreConfig* playerConfig = CPlayerCoreFactory::GetInstance().GetPlayerConfig(playerId);
+                if (playerConfig == NULL)
+                    continue;
+
+                if (playerConfig->GetType() == EPC_BTPLAYER)
+                {
+                    btPlayerId = playerId;
+                }
+            }
+            // check if the there's actually a player with the given player ID
+            if (CPlayerCoreFactory::GetInstance().GetPlayerConfig(btPlayerId) == NULL)
+            {
+                btPlayerId = 0;
+            }
+            return btPlayerId;
+        }
+
+        void startBTPlayer(const char* dbus_path)
+        {
+            XBMC_TRACE
+            CFileItemList list;
+            CFileItemPtr item;
+            item.reset(new CFileItem(dbus_path, false));
+            list.Add(item);
+
+            PLAYERCOREID btPlayerId = findBTPlayer();
+            // set the next player to be used
+            g_application.m_eForcedNextPlayer = btPlayerId;
+            auto fileItemList = new CFileItemList(); //don't delete
+            fileItemList->Copy(list);
+
+            CApplicationMessenger::GetInstance().SendMsg(TMSG_MEDIA_PLAY, -1, -1, static_cast<void*>(fileItemList));
+        }
+
+        void stopBTPlayer()
+        {
+            PLAYERCOREID btPlayerId = findBTPlayer();
+            if (g_application.m_pPlayer->GetCurrentPlayer() == btPlayerId && g_application
+                .m_pPlayer->IsPlayingAudio())
+            {
+                CApplicationMessenger::GetInstance().SendMsg(TMSG_MEDIA_STOP, static_cast<int>(btPlayerId));
+            }
+        }
+
+         bool isBTPlayerActive()
+        {
+            PLAYERCOREID btPlayerId = findBTPlayer();
+            if (g_application.m_pPlayer->GetCurrentPlayer() == btPlayerId)
+            {
+                return true;
+            }
+            return FALSE;
+        }
+    }
   }
-}
