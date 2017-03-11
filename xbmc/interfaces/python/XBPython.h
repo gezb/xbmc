@@ -79,6 +79,10 @@ public:
   virtual void OnQueueNextItem();
   virtual void OnPreviousItem();
   virtual void OnNextItem();
+  virtual void OnVolumeUp();
+  virtual void OnVolumeDown();
+
+
 
   virtual void Announce(ANNOUNCEMENT::AnnouncementFlag flag, const char *sender, const char *message, const CVariant &data);
   void RegisterPythonPlayerCallBack(IPlayerCallback* pCallback);

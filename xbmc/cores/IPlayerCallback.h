@@ -35,4 +35,6 @@ public:
   virtual void OnPlayBackSpeedChanged(int iSpeed) {};
   virtual void OnPreviousItem() {};
   virtual void OnNextItem() {};
+  virtual void OnVolumeUp() {};
+  virtual void OnVolumeDown() {};
 };

@@ -2365,6 +2365,16 @@ bool CApplication::OnAction(const CAction &action)
   // Check for global volume control
   if ((action.GetAmount() && (action.GetID() == ACTION_VOLUME_UP || action.GetID() == ACTION_VOLUME_DOWN)) || action.GetID() == ACTION_VOLUME_SET)
   {
+    // fire python events
+    if (action.GetID() == ACTION_VOLUME_UP)
+      {
+	OnVolumeUp();
+      }
+    if (action.GetID() == ACTION_VOLUME_DOWN)
+      {
+	OnVolumeDown();
+      }
+    
     if (!m_pPlayer->IsPassthrough())
     {
       if (m_muted)
@@ -3736,6 +3746,20 @@ void CApplication::OnNextItem()
 {
 #ifdef HAS_PYTHON
   g_pythonParser.OnNextItem();
+#endif
+}
+
+void CApplication::OnVolumeUp()
+{
+#ifdef HAS_PYTHON
+  g_pythonParser.OnVolumeUp();
+#endif  
+}
+
+void CApplication::OnVolumeDown()
+{
+#ifdef HAS_PYTHON
+  g_pythonParser.OnVolumeDown();
 #endif
 }
 

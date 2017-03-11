@@ -250,6 +250,18 @@ namespace XBMCAddon
       invokeCallback(new CallbackFunction<Player>(this,&Player::onNextItem));
     }
 
+    void Player::OnVolumeUp()
+    {
+      XBMC_TRACE;
+      invokeCallback(new CallbackFunction<Player>(this,&Player::onVolumeUp));
+    }
+
+    void Player::OnVolumeDown()
+    {
+      XBMC_TRACE;
+      invokeCallback(new CallbackFunction<Player>(this,&Player::onVolumeDown));
+    }
+    
     void Player::onPlayBackStarted()
     {
       XBMC_TRACE;
@@ -302,6 +314,16 @@ namespace XBMCAddon
 
     void Player::onNextItem()
     { 
+      XBMC_TRACE;
+    }
+
+    void Player::onVolumeUp()
+    {
+      XBMC_TRACE;
+    }
+
+    void Player::onVolumeDown()
+    {
       XBMC_TRACE;
     }
 

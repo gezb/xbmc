@@ -252,6 +252,28 @@ void XBPython::OnNextItem()
   }
 }
 
+void XBPython::OnVolumeUp()
+{
+  XBMC_TRACE;
+  LOCK_AND_COPY(std::vector<PVOID>,tmp,m_vecPlayerCallbackList);
+  for (PlayerCallbackList::iterator it = tmp.begin(); (it != tmp.end()); ++it)
+  {
+    if (CHECK_FOR_ENTRY(m_vecPlayerCallbackList,(*it)))
+      ((IPlayerCallback*)(*it))->OnVolumeUp();
+  }
+}
+
+void XBPython::OnVolumeDown()
+{
+  XBMC_TRACE;
+  LOCK_AND_COPY(std::vector<PVOID>,tmp,m_vecPlayerCallbackList);
+  for (PlayerCallbackList::iterator it = tmp.begin(); (it != tmp.end()); ++it)
+  {
+    if (CHECK_FOR_ENTRY(m_vecPlayerCallbackList,(*it)))
+     ((IPlayerCallback*)(*it))->OnVolumeDown();
+  }
+}
+
 
 void XBPython::RegisterPythonPlayerCallBack(IPlayerCallback* pCallback)
 {

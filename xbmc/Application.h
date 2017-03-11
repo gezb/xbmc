@@ -180,6 +180,8 @@ public:
   virtual void OnPlayBackSpeedChanged(int iSpeed) override;
   virtual void OnPreviousItem() override;
   virtual void OnNextItem() override;
+  virtual void OnVolumeUp() override;
+  virtual void OnVolumeDown() override;
   
   virtual int  GetMessageMask() override;
   virtual void OnApplicationMessage(KODI::MESSAGING::ThreadMessage* pMsg) override;
