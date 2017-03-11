@@ -29,6 +29,7 @@
 #include "network/upnp/UPnPPlayer.h"
 #endif
 #include "utils/log.h"
+#include "cores/btplayer/BTPlayer.h"
 
 class CPlayerCoreConfig
 {
@@ -104,6 +105,10 @@ public:
       pPlayer = new UPNP::CUPnPPlayer(callback, m_id.c_str());
     }
 #endif
+    else if (m_type.compare("btplayer") == 0)
+    {
+      pPlayer = new BTPlayer(callback);
+    }
     else
       return nullptr;
 

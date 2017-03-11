@@ -323,6 +323,9 @@ bool CPlayerCoreFactory::LoadConfiguration(const std::string &file, bool clear)
     CPlayerCoreConfig* paplayer = new CPlayerCoreConfig("PAPlayer", "music", nullptr);
     paplayer->m_bPlaysAudio = true;
     m_vecPlayerConfigs.push_back(paplayer);
+    CPlayerCoreConfig* BTPlayer = new CPlayerCoreConfig("BTPlayer", "btplayer", nullptr);
+    VideoPlayer->m_bPlaysAudio = true;
+    m_vecPlayerConfigs.push_back(BTPlayer);    
   }
 
   if (!pConfig || strcmpi(pConfig->Value(), "playercorefactory") != 0)
@@ -349,6 +352,8 @@ bool CPlayerCoreFactory::LoadConfiguration(const std::string &file, bool clear)
         internaltype = "music";
       else if (type == "externalplayer")
         internaltype = "external";
+      else if (type == "btplayer")
+        internaltype = "btplayer";
 
       int count = 0;
       std::string playername = name;

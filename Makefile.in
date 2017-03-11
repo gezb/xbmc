@@ -43,6 +43,7 @@ DIRECTORY_ARCHIVES=$(VideoPlayer_ARCHIVES) \
                    xbmc/cores/VideoPlayer/VideoRenderers/VideoRenderer.a \
                    xbmc/cores/VideoPlayer/VideoRenderers/VideoShaders/VideoShaders.a \
                    xbmc/cores/VideoPlayer/VideoRenderers/HwDecRender/HwDecRender.a \
+		    xbmc/cores/btplayer/btplayer.a \
                    xbmc/cores/cores.a \
                    xbmc/cores/paplayer/paplayer.a \
                    xbmc/cores/playercorefactory/playercorefactory.a \

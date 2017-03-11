@@ -1,0 +1,9 @@
+CXXFLAGS+=-D__STDC_FORMAT_MACROS
+
+SRCS  = BTPlayer.cpp
+
+LIB = btplayer.a
+
+include @abs_top_srcdir@/Makefile.include
+-include $(patsubst %.cpp,%.P,$(patsubst %.c,%.P,$(SRCS)))
+
