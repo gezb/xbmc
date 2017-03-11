@@ -178,7 +178,9 @@ public:
   virtual void OnPlayBackSeek(int iTime, int seekOffset) override;
   virtual void OnPlayBackSeekChapter(int iChapter) override;
   virtual void OnPlayBackSpeedChanged(int iSpeed) override;
-
+  virtual void OnPreviousItem() override;
+  virtual void OnNextItem() override;
+  
   virtual int  GetMessageMask() override;
   virtual void OnApplicationMessage(KODI::MESSAGING::ThreadMessage* pMsg) override;
 

@@ -238,6 +238,18 @@ namespace XBMCAddon
       invokeCallback(new CallbackFunction<Player,int>(this,&Player::onPlayBackSeekChapter,chapter));
     }
 
+    void Player::OnPreviousItem()
+    { 
+      XBMC_TRACE;
+      invokeCallback(new CallbackFunction<Player>(this,&Player::onPreviousItem));
+    }
+
+    void Player::OnNextItem()
+    { 
+      XBMC_TRACE;
+      invokeCallback(new CallbackFunction<Player>(this,&Player::onNextItem));
+    }
+
     void Player::onPlayBackStarted()
     {
       XBMC_TRACE;
@@ -279,6 +291,16 @@ namespace XBMCAddon
     }
 
     void Player::onPlayBackSeekChapter(int chapter)
+    { 
+      XBMC_TRACE;
+    }
+
+    void Player::onPreviousItem()
+    { 
+      XBMC_TRACE;
+    }
+
+    void Player::onNextItem()
     { 
       XBMC_TRACE;
     }

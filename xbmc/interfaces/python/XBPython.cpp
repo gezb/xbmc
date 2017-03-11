@@ -229,6 +229,30 @@ void XBPython::OnQueueNextItem()
   }
 }
 
+
+void XBPython::OnPreviousItem()
+{
+  XBMC_TRACE;
+  LOCK_AND_COPY(std::vector<PVOID>,tmp,m_vecPlayerCallbackList);
+  for (PlayerCallbackList::iterator it = tmp.begin(); (it != tmp.end()); ++it)
+  {
+    if (CHECK_FOR_ENTRY(m_vecPlayerCallbackList,(*it)))
+      ((IPlayerCallback*)(*it))->OnPreviousItem();
+  }
+}
+
+void XBPython::OnNextItem()
+{
+  XBMC_TRACE;
+  LOCK_AND_COPY(std::vector<PVOID>,tmp,m_vecPlayerCallbackList);
+  for (PlayerCallbackList::iterator it = tmp.begin(); (it != tmp.end()); ++it)
+  {
+    if (CHECK_FOR_ENTRY(m_vecPlayerCallbackList,(*it)))
+      ((IPlayerCallback*)(*it))->OnNextItem();
+  }
+}
+
+
 void XBPython::RegisterPythonPlayerCallBack(IPlayerCallback* pCallback)
 {
   XBMC_TRACE;

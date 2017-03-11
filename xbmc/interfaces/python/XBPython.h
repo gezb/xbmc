@@ -77,6 +77,8 @@ public:
   virtual void OnPlayBackSeek(int iTime, int seekOffset);
   virtual void OnPlayBackSeekChapter(int iChapter);
   virtual void OnQueueNextItem();
+  virtual void OnPreviousItem();
+  virtual void OnNextItem();
 
   virtual void Announce(ANNOUNCEMENT::AnnouncementFlag flag, const char *sender, const char *message, const CVariant &data);
   void RegisterPythonPlayerCallBack(IPlayerCallback* pCallback);
