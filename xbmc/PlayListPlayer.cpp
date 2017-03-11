@@ -937,6 +937,11 @@ void PLAYLIST::CPlayListPlayer::OnApplicationMessage(KODI::MESSAGING::ThreadMess
       g_application.m_pPlayer->Pause();
     }
     break;
+  case TMSG_PLAYLISTPLAYER_SET_SONG_NO:
+    if (pMsg->param1 != -1)
+    {
+      m_iCurrentSong =  pMsg->param1 - 1;
+    }
   default:
     break;
   }
