@@ -2172,6 +2172,13 @@ bool CApplication::OnAction(const CAction &action)
        OnNextItem();
      }
 
+   // make sure kodi does not handle these events for BTPlayer
+   if (g_application.GetCurrentPlayer() == "BTPlayer" &&
+       (action.GetID() == ACTION_PREV_ITEM || action.GetID() == ACTION_NEXT_ITEM))
+     {
+       return true;
+     }
+   
   // Now check with the playlist player if action can be handled.
   // In case of the action PREV_ITEM, we only allow the playlist player to take it if we're less than 3 seconds into playback.
   if (!(action.GetID() == ACTION_PREV_ITEM && m_pPlayer->CanSeek() && GetTime() > 3) )
