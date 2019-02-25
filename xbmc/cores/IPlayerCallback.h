@@ -35,4 +35,6 @@ public:
   virtual void StoreVideoSettings(const CFileItem &fileItem, CVideoSettings vs) {};
   virtual void OnPreviousItem() {};
   virtual void OnNextItem() {};
+  virtual void OnVolumeUp() {};
+  virtual void OnVolumeDown() {};
 };

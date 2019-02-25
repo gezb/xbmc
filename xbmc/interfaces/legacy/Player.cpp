@@ -197,6 +197,18 @@ namespace XBMCAddon
       invokeCallback(new CallbackFunction<Player>(this,&Player::onNextItem));
     }
 
+    void Player::OnVolumeUp()
+    {
+      XBMC_TRACE;
+      invokeCallback(new CallbackFunction<Player>(this,&Player::onVolumeUp));
+    }
+
+    void Player::OnVolumeDown()
+    {
+      XBMC_TRACE;
+      invokeCallback(new CallbackFunction<Player>(this,&Player::onVolumeDown));
+    }
+
     void Player::OnAVStarted(const CFileItem &file)
     {
       // We only have fileItem due to us having to
@@ -336,6 +348,15 @@ namespace XBMCAddon
       XBMC_TRACE;
     }
 
+    void Player::onVolumeUp()
+    {
+      XBMC_TRACE;
+    }
+
+    void Player::onVolumeDown()
+    {
+      XBMC_TRACE;
+    }
 
     bool Player::isPlaying()
     {

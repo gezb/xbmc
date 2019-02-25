@@ -181,6 +181,8 @@ public:
   void OnPlayBackSpeedChanged(int iSpeed) override;
   void OnPreviousItem() override;
   void OnNextItem() override;
+  void OnVolumeUp() override;
+  void OnVolumeDown() override;
   void OnAVChange() override;
   void OnAVStarted(const CFileItem &file) override;
   void RequestVideoSettings(const CFileItem &fileItem) override;

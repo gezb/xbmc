@@ -174,6 +174,35 @@ namespace XBMCAddon
 
 #ifdef DOXYGEN_SHOULD_USE_THIS
       ///
+      /// \ingroup python_PlayerCB
+      /// @brief \python_func{ OnVolumeUp()}
+      ///-----------------------------------------------------------------------
+      /// OnVolumeUp method.
+      ///
+      /// Will be called when the user turns the volume up.
+      ///
+      onVolumeUp();
+#else 
+      virtual void onVolumeUp();
+#endif
+
+#ifdef DOXYGEN_SHOULD_USE_THIS
+      ///
+      /// \ingroup python_PlayerCB
+      /// @brief \python_func{ OnVolumeDown()}
+      ///-----------------------------------------------------------------------
+      /// OnVolumeDown method.
+      ///
+      /// Will be called when the user turns the volume down.
+      ///
+      onVolumeDown();
+#else 
+      virtual void onVolumeDown();
+#endif      
+
+
+#ifdef DOXYGEN_SHOULD_USE_THIS
+      ///
       /// \ingroup python_Player
       /// @brief \python_func{ playselected(selected) }
       ///-----------------------------------------------------------------------
@@ -834,6 +863,8 @@ namespace XBMCAddon
       SWIGHIDDENVIRTUAL void OnPlayBackSeekChapter(int iChapter) override;
       SWIGHIDDENVIRTUAL void OnPreviousItem();
       SWIGHIDDENVIRTUAL void OnNextItem();
+      SWIGHIDDENVIRTUAL void OnVolumeDown();
+      SWIGHIDDENVIRTUAL void OnVolumeUp();
 #endif
 
     protected:
