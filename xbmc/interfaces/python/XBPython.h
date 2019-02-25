@@ -68,7 +68,8 @@ public:
   void OnPlayBackSeek(int64_t iTime, int64_t seekOffset) override;
   void OnPlayBackSeekChapter(int iChapter) override;
   void OnQueueNextItem() override;
-
+  void OnPreviousItem();
+  void OnNextItem();
   void Announce(ANNOUNCEMENT::AnnouncementFlag flag, const char *sender, const char *message, const CVariant &data) override;
   void RegisterPythonPlayerCallBack(IPlayerCallback* pCallback);
   void UnregisterPythonPlayerCallBack(IPlayerCallback* pCallback);

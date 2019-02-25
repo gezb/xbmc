@@ -179,6 +179,8 @@ public:
   void OnPlayBackSeek(int64_t iTime, int64_t seekOffset) override;
   void OnPlayBackSeekChapter(int iChapter) override;
   void OnPlayBackSpeedChanged(int iSpeed) override;
+  void OnPreviousItem() override;
+  void OnNextItem() override;
   void OnAVChange() override;
   void OnAVStarted(const CFileItem &file) override;
   void RequestVideoSettings(const CFileItem &fileItem) override;

@@ -33,4 +33,6 @@ public:
   virtual void OnAVStarted(const CFileItem &file) {};
   virtual void RequestVideoSettings(const CFileItem &fileItem) {};
   virtual void StoreVideoSettings(const CFileItem &fileItem, CVideoSettings vs) {};
+  virtual void OnPreviousItem() {};
+  virtual void OnNextItem() {};
 };

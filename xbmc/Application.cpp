@@ -1738,6 +1738,17 @@ bool CApplication::OnAction(const CAction &action)
     return true;
   }
 
+  // fire python events
+   if (action.GetID() == ACTION_PREV_ITEM)
+     {
+       OnPreviousItem();
+     }
+
+   if (action.GetID() == ACTION_NEXT_ITEM)
+     {
+       OnNextItem();
+     }
+
   // Now check with the playlist player if action can be handled.
   // In case of ACTION_PREV_ITEM, we only allow the playlist player to take it if we're less than ACTION_PREV_ITEM_THRESHOLD seconds into playback.
   if (!(action.GetID() == ACTION_PREV_ITEM && m_appPlayer.CanSeek() && GetTime() > ACTION_PREV_ITEM_THRESHOLD) )
@@ -3289,6 +3300,22 @@ void CApplication::StoreVideoSettings(const CFileItem &fileItem, CVideoSettings 
     dbs.Close();
   }
 }
+
+void CApplication::OnPreviousItem()
+{
+
+#ifdef HAS_PYTHON
+  g_pythonParser.OnPreviousItem();
+#endif
+}
+
+void CApplication::OnNextItem()
+{
+#ifdef HAS_PYTHON
+  g_pythonParser.OnNextItem();
+#endif
+}
+
 
 bool CApplication::IsPlayingFullScreenVideo() const
 {

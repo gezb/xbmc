@@ -388,6 +388,34 @@ namespace XBMCAddon
 #else
       virtual void onPlayBackSeekChapter(int chapter);
 #endif
+
+#ifdef DOXYGEN_SHOULD_USE_THIS
+      ///
+      /// \ingroup python_PlayerCB
+      /// @brief \python_func{ onPreviousItem()() }
+      ///-----------------------------------------------------------------------
+      /// onPreviousItem method.
+      ///
+      /// Will be called when Kodi moves to the previous file.
+      ///
+      onPreviousItem();
+#else
+      virtual void onPreviousItem();
+#endif
+
+#ifdef DOXYGEN_SHOULD_USE_THIS
+      ///
+      /// \ingroup python_PlayerCB
+      /// @brief \python_func{ onNextItem()() }
+      ///-----------------------------------------------------------------------
+      /// onNextItem method.
+      ///
+      /// Will be called when Kodi moves to the next file.
+      ///
+      onNextItem();
+#else
+      virtual void onNextItem();
+#endif
       /// @}
 
 #ifdef DOXYGEN_SHOULD_USE_THIS
@@ -804,6 +832,8 @@ namespace XBMCAddon
       SWIGHIDDENVIRTUAL void OnPlayBackSpeedChanged(int iSpeed) override;
       SWIGHIDDENVIRTUAL void OnPlayBackSeek(int64_t iTime, int64_t seekOffset) override;
       SWIGHIDDENVIRTUAL void OnPlayBackSeekChapter(int iChapter) override;
+      SWIGHIDDENVIRTUAL void OnPreviousItem();
+      SWIGHIDDENVIRTUAL void OnNextItem();
 #endif
 
     protected:
