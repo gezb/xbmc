@@ -31,8 +31,9 @@ public:
   static bool TryMethodCall(DBusBusType bus, std::string const& destination, std::string const& object, std::string const& interface, std::string const& method);
 
 private:
+  static CVariant Parse(DBusMessageIter *itr);
+  static CVariant ParseDictionary(DBusMessageIter *itr);
   static CVariant ParseType(DBusMessageIter *itr);
-  static CVariant ParseVariant(DBusMessageIter *itr);
 };
 
 class CDBusConnection

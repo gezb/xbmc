@@ -327,6 +327,10 @@ bool CPlayerCoreFactory::LoadConfiguration(const std::string &file, bool clear)
 
     CPlayerCoreConfig* retroPlayer = new CPlayerCoreConfig("RetroPlayer", "game", nullptr);
     m_vecPlayerConfigs.push_back(retroPlayer);
+
+    CPlayerCoreConfig* BTPlayer = new CPlayerCoreConfig("BTPlayer", "btplayer", nullptr);
+    BTPlayer->m_bPlaysAudio = true;
+    m_vecPlayerConfigs.push_back(BTPlayer);
   }
 
   if (!pConfig || strcmpi(pConfig->Value(), "playercorefactory") != 0)
@@ -353,6 +357,9 @@ bool CPlayerCoreFactory::LoadConfiguration(const std::string &file, bool clear)
         internaltype = "music";
       else if (type == "externalplayer")
         internaltype = "external";
+      else if (type == "btplayer")
+        internaltype = "btplayer";
+
 
       int count = 0;
       std::string playername = name;

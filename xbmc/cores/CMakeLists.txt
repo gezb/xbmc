@@ -13,4 +13,6 @@ if(CORE_PLATFORM_NAME_LC STREQUAL rbpi)
   add_subdirectory(omxplayer)
 endif()
 
+  add_subdirectory(btplayer)
+
 core_add_library(cores)

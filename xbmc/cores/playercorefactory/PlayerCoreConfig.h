@@ -14,6 +14,7 @@
 #include "cores/paplayer/PAPlayer.h"
 #include "cores/RetroPlayer/RetroPlayer.h"
 #include "cores/ExternalPlayer/ExternalPlayer.h"
+#include "cores/btplayer/BTPlayer.h"
 #ifdef HAS_UPNP
 #include "network/upnp/UPnPPlayer.h"
 #endif
@@ -98,6 +99,10 @@ public:
       pPlayer = new UPNP::CUPnPPlayer(callback, m_id.c_str());
     }
 #endif
+    else if (m_type.compare("btplayer") == 0)
+    {
+      pPlayer = new BTPlayer(callback);
+    }
     else
       return nullptr;
 
