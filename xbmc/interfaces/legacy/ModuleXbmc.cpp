@@ -48,6 +48,11 @@
 #include <vector>
 #include "utils/log.h"
 
+#include "FileItem.h"
+#include "cores/playercorefactory/PlayerCoreConfig.h"
+#include "cores/playercorefactory/PlayerCoreFactory.h"
+
+
 using namespace KODI;
 using namespace KODI::MESSAGING;
 
@@ -543,6 +548,33 @@ namespace XBMCAddon
     {
       return CSysInfo::GetUserAgent();
     }
+
+void startBTPlayer(const char* dbus_path)
+    {
+      XBMC_TRACE
+      CFileItemList list;
+      CFileItemPtr item;
+      item.reset(new CFileItem(dbus_path, false));
+      list.Add(item);
+      list.Add(item); // add a second time so we get next button rendered
+
+      std::string playerName = std::string("BTPlayer");
+      auto fileItemList = new CFileItemList(); //don't delete
+      fileItemList->Copy(list);
+
+      CApplicationMessenger::GetInstance().SendMsg(TMSG_MEDIA_PLAY, -1, -1, static_cast<void*>(fileItemList), playerName);
+    }
+
+    void stopBTPlayer()
+    {
+      CApplicationMessenger::GetInstance().SendMsg(TMSG_MEDIA_STOP);
+    }
+
+    bool isBTPlayerActive()
+    {
+      return g_application.GetCurrentPlayer() == "BTPlayer";
+    }
+
 
     int getSERVER_WEBSERVER() { return CApplication::ES_WEBSERVER; }
     int getSERVER_AIRPLAYSERVER() { return CApplication::ES_AIRPLAYSERVER; }

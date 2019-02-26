@@ -971,6 +971,75 @@ namespace XBMCAddon
 #else
     String convertLanguage(const char* language, int format);
 #endif
+
+#ifdef DOXYGEN_SHOULD_USE_THIS
+    ///
+    /// \ingroup python_xbmc
+    /// @brief \python_func{ xbmc.startBTPlayer(dbus_path) }
+    ///-----------------------------------------------------------------------
+    /// Starts BTPlayer
+    ///
+    /// @param dbus_path           The full DBus path of the device to monitor
+    ///                            for A2DP events
+    ///
+    /// ------------------------------------------------------------------------
+    ///
+    /// **Example:**
+    /// ~~~~~~~~~~~~~{.py}
+    /// ..
+    /// xbmc.startBTPlayer("/org/bluez/hci0/dev_FXX_XX_XX_XX_XX_XX_XX/player0h")
+    /// ..
+    /// ~~~~~~~~~~~~~
+    ///
+    startBTPlayer();
+#else
+    void startBTPlayer(const char* dbus_path);
+#endif
+
+#ifdef DOXYGEN_SHOULD_USE_THIS
+    ///
+    /// \ingroup python_xbmc
+    /// @brief \python_func{ xbmc.stopBTPlayer() }
+    ///-----------------------------------------------------------------------
+    /// Stops BTPlayer
+    ///
+    ///
+    /// ------------------------------------------------------------------------
+    ///
+    /// **Example:**
+    /// ~~~~~~~~~~~~~{.py}
+    /// ..
+    /// xbmc.stopBTPlayer()
+    /// ..
+    /// ~~~~~~~~~~~~~
+    ///
+    stopBTPlayer();
+#else
+    void stopBTPlayer();
+#endif
+
+#ifdef DOXYGEN_SHOULD_USE_THIS
+    ///
+    /// \ingroup python_xbmc
+    /// @brief \python_func{ xbmc.isBTPlayerActive() }
+    ///-----------------------------------------------------------------------
+    /// Returns true if BTPlayer is active
+    ///
+    ///
+    /// ------------------------------------------------------------------------
+    ///
+    /// **Example:**
+    /// ~~~~~~~~~~~~~{.py}
+    /// ..
+    /// xbmc.isBTPlayerActive()
+    /// ..
+    /// ~~~~~~~~~~~~~
+    ///
+    isBTPlayerActive();
+#else
+    bool isBTPlayerActive();
+#endif
+
     //@}
 #ifndef DOXYGEN_SHOULD_SKIP_THIS
     SWIG_CONSTANT_FROM_GETTER(int, SERVER_WEBSERVER);
